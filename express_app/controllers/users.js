@@ -1,6 +1,9 @@
 module.exports.controller = (app) => {
     //get users page
     app.get('/users',(req,res) => {
-        res.render('index',{ title : 'Users'});
+        res.render('users',{ 
+            title : 'Users-Controllers',
+            description: 'This is the users page description',
+        });
     })
 }
