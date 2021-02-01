@@ -12,6 +12,7 @@
     "express": "~4.16.1",
     "file-system": "^2.2.2",
     "http-errors": "~1.6.3",
+    "mongoose": "^5.11.14",
     "morgan": "~1.9.1",
     "pug": "^3.0.0",
     "serve-favicon": "^2.5.0"

@@ -3,12 +3,24 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
 //removed after added controllers
 //var indexRouter = require('./routes/index');
 //var usersRouter = require('./routes/users');
 
 var app = express();
+
+//connect to mongodb via mongoos
+mongoose.connect('mongodb://localhost:27017/express_app',function(){
+  console.log('Connected to MongoDB');
+})
+.catch(err => {
+  console.error('App Error: ', err.stack);
+});
+
+
 
 //filesystem module
 var fs = require('file-system');
