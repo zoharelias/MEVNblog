@@ -1,10 +1,16 @@
-var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-var cookieParser = require('cookie-parser');
+var favicon = require('serve-favicon');
 var logger = require('morgan');
+var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var fs = require('file-system');
 var mongoose = require('mongoose');
+const User = require('./models/User');
+
+
+var createError = require('http-errors');
+
 
 //removed after added controllers
 //var indexRouter = require('./routes/index');
@@ -22,8 +28,9 @@ mongoose.connect('mongodb://localhost:27017/express_app',function(){
 
 
 
-//filesystem module
-var fs = require('file-system');
+
+ 
+const { getMaxListeners } = require('./models/User');
 //include controllers
 fs.readdirSync('controllers').forEach(function (file) {
   if(file.substr(-3) === '.js'){
@@ -64,4 +71,27 @@ app.use(function(err, req, res, next) {
 
 app.listen(3000, function() {console.log('Listening on port 3000');})
 
+
 module.exports = app;
+
+
+// //creating a user with mongoose schema
+// //(imported user object)
+// var user = new User( {name:'Jloake',email:'jloake@lol.com'}); //the schema is in User.js
+// console.log(user.name);
+
+// user.save((error)=>{
+//   if(error)
+//     console.log(error);
+//   console.log('Added new user: ' + user.name);
+// })
+
+
+// //get all documents("records") in users collection ("table")
+// User.find({},'name email', function(error,users){
+//   if(error) {
+//     console.error(error)
+//   };
+//   console.log({users:users});
+// })
+
