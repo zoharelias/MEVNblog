@@ -117,7 +117,7 @@
         <v-card-title primary-title>
           <div>
             <div class="headline">Django</div>
-            <span class="grey--text">2017 ‧ Thriller film ‧ 2 hours </span>
+            <span class="grey--text">2017 ‧ Action film ‧ 2 hours </span>
           </div>
         </v-card-title>
         <v-card-text>
