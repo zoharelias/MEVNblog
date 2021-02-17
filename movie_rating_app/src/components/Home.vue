@@ -15,8 +15,7 @@
           and helpless, including crime-fighting billionaire Bruce Wayne (Ben
           Affleck). Convinced that Superman is now a threat to humanity, Batman
           embarks on a personal vendetta to end his reign on Earth, while the
-          conniving Lex Luthor (Jesse Eisenberg) launches his own crusade against the
-          Man of Steel.
+          conniving Lex Luthor (Jesse Eisenberg) 
         </v-card-text>
         <v-card-actions>
           <v-btn flat color="purple">Rate this movie</v-btn>
