@@ -1,6 +1,17 @@
 <template>
   <v-layout row wrap>
-    <v-flex xs4>
+    <v-flex xs4 v-for="movie in movies" :key="movie._id">
+      <v-card>
+        <v-card-title primary-title>
+          <div>
+            <div class="headline">{{ movie.name}}</div>
+            <span class="grey--text">{{ movie.release_year }} ‧ {{ movie.genre }}</span>
+          </div>
+        </v-card-title>
+        {{ movie.description }}
+      </v-card>
+    </v-flex>
+    <!-- <v-flex xs4>
       <v-card>
         <v-card-title primary-title>
           <div>
@@ -156,24 +167,42 @@
           <v-spacer></v-spacer>
         </v-card-actions>
       </v-card>
-    </v-flex>
+    </v-flex> -->
 
   </v-layout>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'HelloWorld',
   data() {
     return {
       msg: 'Welcome to Your Vue.js App',
+      movies: [],
     };
   },
+  mounted() {
+    this.fetchMovies();
+  },
   methods: {
+    async fetchMovies(){
+      return axios({
+        method: 'get',
+        url: 'http://localhost:8081/movies',
+      })
+      .then ((response)=>{
+        this.movies = response.data.movies;
+      })
+      .catch(()=>{
+
+      });
+    },
     reply(){
       this.msg = "I'm COOL!";
-    }
-  }
+    },
+  },
 };
 </script>
 
