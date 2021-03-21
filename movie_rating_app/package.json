@@ -25,6 +25,7 @@
     "nodemon": "^2.0.7",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
+    "vue-star-rating": "^1.7.0",
     "vue-swal": "^1.0.0",
     "vuetify": "^2.4.4"
   },
