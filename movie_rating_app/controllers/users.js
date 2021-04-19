@@ -1,5 +1,7 @@
 const User = require('../models/User.js');
 
+
+
 module.exports.controller = (app) => {
     //register a user
     app.post('/users/register', (req,res)=>{
@@ -12,7 +14,11 @@ module.exports.controller = (app) => {
             password,
         });
         User.createUser(newUser, (error,user)=>{
-            if(error){console.log(error);}
+            if(error){
+                res.status(422).json ({
+                    message: 'Something wrong. Try again later',
+                });
+            }
             res.send({ user });
         });
     });
