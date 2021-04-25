@@ -1,13 +1,14 @@
 const User = require('../models/User.js');
 
 const passportJWT = require('passport-jwt');
+const ExtractJWT = require('passport-jwt').ExtractJwt;
 const jwt = require('jsonwebtoken');
 
-const ExtractJWT = passportJWT.ExtractJWT;
+//const ExtractJWT = passportJWT.ExtractJwt;
 const jwtOptions = {};
+//jwtOptions.jwtFromRequest = ExtractJwt.fromAuthHeaderWithScheme('jwt');
 jwtOptions.jwtFromRequest = ExtractJWT.fromAuthHeaderWithScheme('jwt');
-jwt.secretOrKey = 'thisisthesecretkey';
-
+jwtOptions.secretOrKey = 'thisisthesecretkey';
 
 module.exports.controller = (app) => {
     //register a user
@@ -32,7 +33,7 @@ module.exports.controller = (app) => {
 
     //login a user
     app.post('/users/login', (req,res) => {
-        if(req.body/email && req.body.password) {
+        if(req.body.email && req.body.password) {
             const email = req.body.email;
             const password = req.body.password;
             User.getUserByEmail(email, (err,user) => {

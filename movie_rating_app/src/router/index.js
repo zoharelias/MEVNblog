@@ -6,6 +6,7 @@ import Contact from '@/components/Contact';
 import AddMovie from '@/components/AddMovie';
 import Movie from '@/components/Movie';
 import Register from '@/components/Register';
+import Login from '@/components/Login';
 
 Vue.use(Router);
 
@@ -37,6 +38,10 @@ export default new Router({
       name: 'Register',
       component: Register,
     },
-    
+    {
+      path: '/users/login',
+      name: 'Login',
+      component: Login,
+    },
   ],
 });
